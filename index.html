@@ -1,12 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="index.css">
-  <title>Account Registration</title>
-</head>
-<body>
-  <script src="index.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Account Registration</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header-text">Register your account</h1>
+    </header>
+    <main class="main">
+      <fieldset class="name">
+        <legend>Name</legend>
+        <form class="form">
+          <div>
+            <label class="name-label" for="name">Name: </label>
+            <input
+              id="name"
+              type="text"
+              placeholder="Firstname Sirname"
+              pattern="[a-zA-Z\- ]{5,55}"
+              required
+            />
+          </div>
+          <div>
+            <label for="username">Username: </label>
+            <input id="username" type="text" placeholder="Username" />
+          </div>
+          <div>
+            <label for="email">Email: </label>
+            <input id="email" type="email" placeholder="username@mail.se" />
+          </div>
+          <div>
+            <label for="password">Password: </label>
+            <input
+              id="password"
+              type="password"
+              placeholder="password (at least 8 letters)"
+            />
+          </div>
+          <div>
+            <label for="confirm-password">Confirm password: </label>
+            <input
+              id="confirm-password"
+              type="password"
+              placeholder="confirm password"
+            />
+          </div>
+          <div>
+            <button class="submit" disabled>Submit</button>
+          </div>
+        </form>
+      </fieldset>
+    </main>
+    <footer class="footer"></footer>
+    <script src="index.js"></script>
+  </body>
 </html>
