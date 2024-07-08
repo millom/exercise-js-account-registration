@@ -20,17 +20,44 @@
               id="name"
               type="text"
               placeholder="Firstname Sirname"
-              pattern="[a-zA-Z\- ]{5,55}"
+              pattern="[a-öA-Ö\- ]{5,25}[ ]{1}[a-öA-Ö\- ]{5,25}"
               required
             />
+            <!-- <input
+              id="name"
+              type="text"
+              placeholder="Firstname Sirname"
+            /> -->
           </div>
           <div>
             <label for="username">Username: </label>
-            <input id="username" type="text" placeholder="Username" />
+            <input
+              id="username"
+              type="text"
+              placeholder="Username"
+              pattern="[a-öA-Ö\-]{5,15}[0-9]{0,3}"
+              required
+            />
+            <!-- <input
+              id="username"
+              type="text"
+              placeholder="Username"
+            /> -->
           </div>
           <div>
             <label for="email">Email: </label>
-            <input id="email" type="email" placeholder="username@mail.se" />
+            <input
+              id="email"
+              type="email"
+              placeholder="username@mail.se"
+              pattern="[a-zA-Z]{5,15}[.]?[a-zA-Z]{0,15}[0-9]{0,3}[@]{1}[a-z]{3,10}[.]{1}[a-z]{2,3}"
+              required
+            />
+            <!-- <input
+              id="email"
+              type="email"
+              placeholder="username@mail.se"
+            /> -->
           </div>
           <div>
             <label for="password">Password: </label>
@@ -38,6 +65,8 @@
               id="password"
               type="password"
               placeholder="password (at least 8 letters)"
+              pattern="[a-zA-Z0-9\p{P}\p{S}]{8,16}"
+              required
             />
           </div>
           <div>
@@ -46,6 +75,8 @@
               id="confirm-password"
               type="password"
               placeholder="confirm password"
+              pattern="[a-zA-Z0-9\p{P}\p{S}]{8,16}"
+              required
             />
           </div>
           <div>

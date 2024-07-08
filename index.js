@@ -1,44 +1,55 @@
 const formTag = document.querySelector(".form");
-formTag.onchange = () => console.log("Form:", formTag);
+const buttonTag = formTag.querySelector(".submit");
 
-let buttonTag = formTag.querySelector(".submit");
-// console.log("Confirm password:", confirmPasswordTag?.value);
+const nameTag = formTag.querySelector("#name");
+const usernameTag = formTag.querySelector("#username");
+const emailTag = formTag.querySelector("#email");
+const passwordTag = formTag.querySelector("#password");
+const confirmPasswordTag = formTag.querySelector("#confirm-password");
 
-let nameTag = formTag.querySelector("#name");
 nameTag.onkeyup = () => {
-  console.log("Valid", formTag.checkValidity());
-  // buttonTag.disabled = formTag.checkValidity();
-  // buttonTag.disabled = false;
+  enableOrDisableButton();
+
+  // console.log(isNameTagValid());
+};
+
+usernameTag.onkeyup = () => {
+  enableOrDisableButton();
+};
+
+emailTag.onkeyup = () => {
+  enableOrDisableButton();
+};
+
+passwordTag.onkeyup = () => {
+  enableOrDisableButton();
+};
+
+confirmPasswordTag.onkeyup = () => {
+  enableOrDisableButton();
+};
+
+const isNameTagValid = () => {
+  return nameTag.isDirty();
+};
+
+let enableOrDisableButton = () => {
   formTag.checkValidity()
     ? buttonTag.removeAttribute("disabled")
     : buttonTag.setAttribute("disabled", "disabled");
-  // buttonTag.removeAttribute("disabled");
-
-  // let itemList = formTag.querySelectorAll(":invalid");
-  // console.log(itemList.length, itemList);
-  // console.log("Valis name", nameTag.checkValidity());
-  // console.log("Name:", nameTag?.value);
-  // if (!nameTag?.value) return;
-
-  // // let regStr = "/^([a-z0-9]{5,})$/";
-  // const re = new RegExp("^([a-öA-Ö- ]{3,55})$");
-
-  // let isValid = re.test(nameTag.value);
-  // nameTag.isValid = isValid;
-  // console.log(isValid);
 };
 
-let usernameTag = formTag.querySelector("#username");
-console.log("Username:", usernameTag?.value);
+let isFormValid = () => {
+  return isAllFormItemsValid() && isPasswordsEqual();
+};
 
-let emailTag = formTag.querySelector("#username");
-console.log("Email:", emailTag?.value);
+let isAllFormItemsValid = () => {
+  return formTag.checkValidity();
+};
 
-let passwordTag = formTag.querySelector("#password");
-console.log("Password", passwordTag?.value);
-
-let confirmPasswordTag = formTag.querySelector("#confirm-password");
-console.log("Confirm password:", confirmPasswordTag?.value);
+let isPasswordsEqual = () => {
+  return passwordTag.value === confirmPasswordTag.value;
+};
 
 const registrationData = {
   name: "first name last name",
