@@ -7,26 +7,41 @@ const emailTag = formTag.querySelector("#email");
 const passwordTag = formTag.querySelector("#password");
 const confirmPasswordTag = formTag.querySelector("#confirm-password");
 
+let isNameDirty = false;
+let isUsernameDirty = false;
+let isEmailDirty = false;
+let isPasswordDirty = false;
+let isConfirmDirty = false;
+
 nameTag.onkeyup = () => {
   enableOrDisableButton();
 
+  isNameDirty = true;
   // console.log(isNameTagValid());
 };
 
 usernameTag.onkeyup = () => {
   enableOrDisableButton();
+
+  isUsernameDirty = true;
 };
 
 emailTag.onkeyup = () => {
   enableOrDisableButton();
+
+  isEmailDirty = true;
 };
 
 passwordTag.onkeyup = () => {
   enableOrDisableButton();
+
+  isPasswordDirty = true;
 };
 
 confirmPasswordTag.onkeyup = () => {
   enableOrDisableButton();
+
+  isConfirmDirty = true;
 };
 
 const isNameTagValid = () => {
