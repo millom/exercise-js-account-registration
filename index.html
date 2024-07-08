@@ -14,20 +14,17 @@
       <fieldset class="name">
         <legend>Name</legend>
         <form class="form">
-          <div>
+          <div class="">
             <label class="name-label" for="name">Name: </label>
             <input
               id="name"
+              class="tooltip"
               type="text"
               placeholder="Firstname Sirname"
               pattern="[a-öA-Ö\- ]{5,25}[ ]{1}[a-öA-Ö\- ]{5,25}"
               required
             />
-            <!-- <input
-              id="name"
-              type="text"
-              placeholder="Firstname Sirname"
-            /> -->
+            <!-- <span class="tooltip-text">SHOW THIS</span> -->
           </div>
           <div>
             <label for="username">Username: </label>
@@ -35,14 +32,11 @@
               id="username"
               type="text"
               placeholder="Username"
+              name="username"
+              autocomplete="username"
               pattern="[a-öA-Ö\-]{5,15}[0-9]{0,3}"
               required
             />
-            <!-- <input
-              id="username"
-              type="text"
-              placeholder="Username"
-            /> -->
           </div>
           <div>
             <label for="email">Email: </label>
@@ -53,17 +47,14 @@
               pattern="[a-zA-Z]{5,15}[.]?[a-zA-Z]{0,15}[0-9]{0,3}[@]{1}[a-z]{3,10}[.]{1}[a-z]{2,3}"
               required
             />
-            <!-- <input
-              id="email"
-              type="email"
-              placeholder="username@mail.se"
-            /> -->
           </div>
           <div>
             <label for="password">Password: </label>
             <input
               id="password"
               type="password"
+              name="password"
+              autocomplete="current-password"
               placeholder="password (at least 8 letters)"
               pattern="[a-zA-Z0-9\p{P}\p{S}]{8,16}"
               required
@@ -75,6 +66,8 @@
               id="confirm-password"
               type="password"
               placeholder="confirm password"
+              name="confirm-password"
+              autocomplete="current-password"
               pattern="[a-zA-Z0-9\p{P}\p{S}]{8,16}"
               required
             />

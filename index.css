@@ -1,3 +1,50 @@
-.display-error {
+/* .tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0; */
+
+/* Position the tooltip */
+/* position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+} */
+
+/* .display-error {
   display: none;
+} */
+
+* {
+  outline: none;
+  box-shadow: 0px 0px 5px whitesmoke; /*here change the color*/
+  border: 1px solid whitesmoke; /*here change the color*/
+  border-radius: 0;
+
+  /* border-color: whitesmoke;
+  border: 1rem; */
+  /* border: 0;
+  padding: 0.3rem; */
+}
+
+.show-error {
+  outline: none;
+  box-shadow: 0px 0px 5px red; /*here change the color*/
+  border: 1px solid red; /*here change the color*/
+
+  /* background-color: red; */
+  /* border-color: blue; */
+  /* border: 0.3rem;
+  padding: 0rem; */
 }
