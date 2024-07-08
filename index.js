@@ -14,56 +14,65 @@ let isPasswordDirty = false;
 let isConfirmDirty = false;
 
 nameTag.onkeyup = () => {
-  enableOrDisableButton();
-
   isNameDirty = true;
-  // console.log(isNameTagValid());
+
+  enableOrDisableButton();
 };
 
 usernameTag.onkeyup = () => {
-  enableOrDisableButton();
-
   isUsernameDirty = true;
+
+  enableOrDisableButton();
 };
 
 emailTag.onkeyup = () => {
-  enableOrDisableButton();
-
   isEmailDirty = true;
+
+  enableOrDisableButton();
 };
 
 passwordTag.onkeyup = () => {
-  enableOrDisableButton();
-
   isPasswordDirty = true;
+
+  enableOrDisableButton();
 };
 
 confirmPasswordTag.onkeyup = () => {
-  enableOrDisableButton();
-
   isConfirmDirty = true;
+
+  enableOrDisableButton();
 };
 
 const isNameTagValid = () => {
   return nameTag.isDirty();
 };
 
-let enableOrDisableButton = () => {
-  formTag.checkValidity()
+const enableOrDisableButton = () => {
+  !isFormTouched() || isFormValid()
     ? buttonTag.removeAttribute("disabled")
     : buttonTag.setAttribute("disabled", "disabled");
 };
 
-let isFormValid = () => {
+const isFormValid = () => {
   return isAllFormItemsValid() && isPasswordsEqual();
 };
 
-let isAllFormItemsValid = () => {
+const isAllFormItemsValid = () => {
   return formTag.checkValidity();
 };
 
-let isPasswordsEqual = () => {
+const isPasswordsEqual = () => {
   return passwordTag.value === confirmPasswordTag.value;
+};
+
+const isFormTouched = () => {
+  return (
+    isNameDirty ||
+    isUsernameDirty ||
+    isEmailDirty ||
+    isPasswordDirty ||
+    isConfirmDirty
+  );
 };
 
 const registrationData = {
@@ -72,3 +81,6 @@ const registrationData = {
   email: "email@email.com",
   password: "password",
 };
+
+// Enable submit button at startup
+enableOrDisableButton();
