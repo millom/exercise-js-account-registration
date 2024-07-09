@@ -31,6 +31,7 @@ nameTag.onkeyup = (e) => {
   // }
 
   isInputOk ? removeErrorBorder(nameTag) : addErrorBorder(nameTag);
+  isInputOk ? disableTooltip(nameTag) : enableTooltip(nameTag);
   console.log(nameTag.classList);
 };
 
@@ -90,10 +91,30 @@ const removeErrorBorder = (tag, isOk) => {
   }
 };
 
+const disableTooltip = (tag, isOk) => {
+  const errorTag = tag.parentElement.querySelector("#name-error");
+  if (errorTag.classList.contains("tooltip-show")) {
+    errorTag.classList.remove("tooltip-show");
+  }
+  // if (tag.classList.contains("tooltip-show")) {
+  //   tag.classList.remove("tooltip-show");
+  // }
+};
+
 const addErrorBorder = (tag) => {
   if (!tag.classList.contains("show-error")) {
     tag.classList.add("show-error");
   }
+};
+
+const enableTooltip = (tag) => {
+  const errorTag = tag.parentElement.querySelector("#name-error");
+  if (!errorTag.classList.contains("tooltip-show")) {
+    errorTag.classList.add("tooltip-show");
+  }
+  // if (!tag.classList.contains("tooltip-show")) {
+  //   tag.classList.add("tooltip-show");
+  // }
 };
 
 const isUsernameTagValid = () => {

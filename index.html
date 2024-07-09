@@ -14,17 +14,18 @@
       <fieldset class="name">
         <legend>Name</legend>
         <form class="form">
-          <div class="">
+          <div class="tooltip">
             <label class="name-label" for="name">Name: </label>
             <input
               id="name"
-              class="tooltip"
               type="text"
               placeholder="Firstname Sirname"
               pattern="[a-öA-Ö\- ]{5,25}[ ]{1}[a-öA-Ö\- ]{5,25}"
               required
             />
-            <!-- <span class="tooltip-text">SHOW THIS</span> -->
+            <span id="name-error" class="tooltip-text tooltip-show"
+              >SHOW THIS</span
+            >
           </div>
           <div>
             <label for="username">Username: </label>
