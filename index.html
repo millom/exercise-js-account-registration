@@ -21,6 +21,7 @@
               type="text"
               class=""
               placeholder="Firstname Sirname"
+              name="name"
               pattern="[a-öA-Ö\- ]{2,25}[ ]{1}[a-öA-Ö\- ]{2,25}"
               required
             />
@@ -29,51 +30,73 @@
               <p>Kan endast innemålla svenska bokstäver</p>
             </article>
           </div>
-          <div>
+          <div class="tooltip">
             <label for="username">Username: </label>
             <input
               id="username"
               type="text"
+              class=""
               placeholder="Username"
               name="username"
               autocomplete="username"
               pattern="[a-öA-Ö\-]{5,15}[0-9]{0,3}"
               required
             />
+            <article id="name-error" class="tooltip-text">
+              <p>Namn måste vara 2 till 25 bokstäver</p>
+              <p>Kan endast innemålla svenska bokstäver</p>
+            </article>
           </div>
-          <div>
+          <div class="tooltip">
             <label for="email">Email: </label>
             <input
               id="email"
               type="email"
+              class=""
               placeholder="username@mail.se"
+              name="email"
+              autocomplete="current-eamil"
               pattern="[a-zA-Z]{5,15}[.]?[a-zA-Z]{0,15}[0-9]{0,3}[@]{1}[a-z]{3,10}[.]{1}[a-z]{2,3}"
               required
             />
+            <article id="name-error" class="tooltip-text">
+              <p>Namn måste vara 2 till 25 bokstäver</p>
+              <p>Kan endast innemålla svenska bokstäver</p>
+            </article>
           </div>
-          <div>
+          <div class="tooltip">
             <label for="password">Password: </label>
             <input
               id="password"
               type="password"
+              class=""
+              placeholder="Password (at least 8 letters)"
               name="password"
               autocomplete="current-password"
-              placeholder="password (at least 8 letters)"
               pattern="[a-zA-Z0-9\p{P}\p{S}]{8,16}"
               required
             />
+            <article id="name-error" class="tooltip-text">
+              <p>Namn måste vara 2 till 25 bokstäver</p>
+              <p>Kan endast innemålla svenska bokstäver</p>
+            </article>
           </div>
-          <div>
+          <div class="tooltip">
             <label for="confirm-password">Confirm password: </label>
             <input
               id="confirm-password"
               type="password"
-              placeholder="confirm password"
+              class=""
+              placeholder="Password (at least 8 letters)"
               name="confirm-password"
               autocomplete="current-password"
               pattern="[a-zA-Z0-9\p{P}\p{S}]{8,16}"
               required
             />
+            <article id="name-error" class="tooltip-text">
+              <p>Namn måste vara 2 till 25 bokstäver</p>
+              <p>Kan endast innemålla svenska bokstäver</p>
+            </article>
           </div>
           <div>
             <button class="submit" disabled>Submit</button>

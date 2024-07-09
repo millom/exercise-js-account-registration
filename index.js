@@ -60,8 +60,16 @@ const isFormTouched = () => {
   );
 };
 
+const areAllFormItemsValid = () => {
+  return formTag.checkValidity();
+};
+
+const arePasswordsEqual = () => {
+  return passwordTag.value === confirmPasswordTag.value;
+};
+
 const isFormValid = () => {
-  return isAllFormItemsValid() && isPasswordsEqual();
+  return areAllFormItemsValid() && arePasswordsEqual();
 };
 
 const enableOrDisableButton = () => {
@@ -75,6 +83,8 @@ const validiteTag = (tag) => {
 };
 
 const validiteConfirmTag = (tag) => {
+  if (!isPasswordValid()) return true;
+
   // If password is valid this must also be valid
   return tag.value == confirmPasswordTag.value;
 };
@@ -90,9 +100,9 @@ const handleGUI = (tag, validate) => {
 const focusoutFunc = () => {
   event.target.style.background = "";
 
-  handleGUI(event.target, validiteTag);
-
   isNameDirty = true;
+
+  handleGUI(event.target, validiteTag);
 };
 
 const isPasswordValid = () => {
@@ -117,7 +127,7 @@ confirmPasswordTag.addEventListener("focusout", () => {
   event.target.style.background = "";
 
   // Check if password is correct, if not ignore this
-  if (!isPasswordValid()) return;
+  // if (!isPasswordValid()) return;
 
   handleGUI(event.target, validiteConfirmTag);
 
@@ -205,14 +215,6 @@ enableOrDisableButton();
 
 // const isConfirmTagValid = () => {
 //   return confirmTag.isDirty();
-// };
-
-// const isAllFormItemsValid = () => {
-//   return formTag.checkValidity();
-// };
-
-// const isPasswordsEqual = () => {
-//   return passwordTag.value === confirmPasswordTag.value;
 // };
 
 const registrationData = {
