@@ -13,15 +13,31 @@ body {
   width: 100%;
 }
 
-.body-container {
+body .body-container {
   height: 100vh;
-  max-width: 52rem;
-  margin: 20%;
+  max-width: 57rem;
+  margin-block: 35%;
+  margin-inline: 20%;
   overflow: hidden;
   border-radius: 12px;
 }
 
-.main {
+body .body-container .header {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  padding: 4%;
+  background-color: mediumpurple;
+}
+
+body .body-container .header .header-text {
+  width: fit-content;
+  block-size: fit-content;
+  border: none;
+  color: whitesmoke;
+}
+
+body .body-container .main {
   display: grid;
   align-content: center;
   justify-content: center;
@@ -30,7 +46,7 @@ body {
   background-color: blueviolet;
 }
 
-.form {
+body .body-container .main .form {
   display: grid;
   grid-template-rows: 1fp 1fp 1fp 1fp 1fp 1fp;
   grid-template-columns: 1fp;
@@ -38,26 +54,40 @@ body {
   gap: 1rem;
 }
 
-.header {
-  display: grid;
-  align-content: center;
-  justify-content: center;
-  padding: 4%;
-  background-color: mediumpurple;
+body .body-container .main .form .tooltip {
+  position: relative;
 }
 
-.header-text {
-  width: fit-content;
-  block-size: fit-content;
-  border: none;
+/* Not working with full path here */
+.main .form .tooltip .tooltip-text {
+  display: none;
+  visibility: hidden;
+  width: 13rem;
+  background-color: red;
   color: whitesmoke;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  right: -13em;
+  z-index: 2;
 }
 
-.field-container {
+body .body-container .main .form .field-container {
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: auto auto;
   justify-content: space-between;
+}
+
+body .body-container .main .form .tooltip.field-container .input-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  width: 6rem;
+  color: whitesmoke;
+  box-shadow: none;
 }
 
 .submit-container {
@@ -83,38 +113,10 @@ body {
   background-color: mediumpurple;
 }
 
-.tooltip {
-  position: relative;
-}
-
-.tooltip .tooltip-text {
-  display: none;
-  visibility: hidden;
-  width: 13rem;
-  background-color: red;
-  color: whitesmoke;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  right: -13em;
-  z-index: 2;
-}
-
 .field-container {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
-}
-
-.input-label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 2rem;
-  width: 6rem;
-  color: whitesmoke;
-  box-shadow: none;
 }
 
 .text-input {
