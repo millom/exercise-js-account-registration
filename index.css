@@ -1,29 +1,118 @@
+* {
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+}
+
 body {
   display: grid;
-  grid-template-rows: 10% auto 10%;
-  grid-template-columns: 12% 1fp 1fp 1fp 12%;
-  grid-row-start: 2;
+  grid-template-rows: 1fp 1fp 1fp;
+  grid-template-columns: 1fp;
+  flex-direction: column;
+  /* align-content: space-between;
+  justify-content: space-between; */
+  /* gap: 2rem; */
+
+  /* background-color: brown; */
+  /* border-color: cadetblue; */
+  /* grid-row-start: 2;
   grid-row-end: 4;
   grid-column-start: 2;
-  grid-column-end: 2;
+  grid-column-end: 2; */
 
-  margin: 10rem;
+  margin: 15%;
 }
 
 .main {
   display: grid;
-  grid-template-rows: 10% 1fp 1fp 1fp 10%;
-  grid-template-columns: 12% auto 12%;
-  grid-column-start: 2;
+  align-content: center;
+  justify-content: center;
+
+  padding-block: 3rem;
+  background-color: blueviolet;
+  border: none;
+  /* display: grid;
+  grid-template-columns: 1fp 1fp;
+  grid-template-rows: 1fp 1fp 1fp 1fp 1fp 1fp;
+  flex-direction: column;
+
+  align-content: space-between;
+  justify-content: space-between;
+  gap: 5rem; */
+
+  /* grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 2;
-  grid-row-end: 4;
+  grid-row-end: 4; */
+}
+
+.form {
+  display: grid;
+  grid-template-rows: 1fp 1fp 1fp 1fp 1fp 1fp;
+  grid-template-columns: 1fp;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.header {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  padding: 8%;
+
+  border-bottom: 1rem;
+  border-color: gold;
+  /* background-color: blueviolet; */
+  background-color: mediumpurple;
+}
+
+.header-text {
+  width: fit-content;
+  block-size: fit-content;
+  border: none;
+  color: whitesmoke;
+}
+
+.field-container {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  /* flex-wrap: nowrap; */
+  /* justify-content: space-around; */
+}
+
+.submit-container {
+  /* grid-row-start: 1;
+  grid-row-end: 2; */
+
+  justify-content: center;
+  align-content: center;
+}
+
+.submit {
+  height: 3rem;
+  width: 5rem;
+  border-radius: 8px;
+}
+
+.footer {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+
+  padding: 4%;
+  border-top: 1rem;
+  border-color: gold;
+  /* background-color: blueviolet; */
+  background-color: aliceblue;
 }
 
 .tooltip {
   position: relative;
   /* display: inline-block; */
-  border-bottom: 1px dotted black;
+  /* border-bottom: 1px dotted black; */
 }
 
 .tooltip .tooltip-text {
@@ -35,10 +124,49 @@ body {
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
+  /* display: inline-block;
+  border-bottom: 1px dotted black; */
 
   /* Position the tooltip */
   position: absolute;
+  right: -13em;
   z-index: 1;
+}
+
+.field-container {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.input-label {
+  /* display: inline-block; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  width: 6rem;
+  color: whitesmoke;
+
+  box-shadow: none;
+  /* vertical-align: center; */
+  /* horizontal-align: center; */
+  /* text-align: center; */
+  /* align-items: center; */
+}
+
+.text-input {
+  height: 2rem;
+  width: 12rem;
+  text-align: center;
+}
+
+.submit-container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+
+  padding-top: 2em;
 }
 
 .tooltip:hover .tooltip-text.tooltip-show {
@@ -60,8 +188,8 @@ body {
 
 * {
   outline: none;
-  box-shadow: 0px 0px 5px whitesmoke; /*here change the color*/
-  border: 1px solid whitesmoke; /*here change the color*/
+  /* box-shadow: 0px 0px 5px whitesmoke; here change the color */
+  /* border: 1px solid whitesmoke; here change the color */
   border-radius: 0;
 
   /* border-color: whitesmoke;
