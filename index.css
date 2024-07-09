@@ -73,11 +73,19 @@ body .body-container .main .form .tooltip {
   z-index: 2;
 }
 
+body .body-container .main .form .tooltip .show-error {
+  outline: none;
+  box-shadow: 0px 0px 5px red; /*here change the color*/
+  border: 1px solid red; /*here change the color*/
+}
+
 body .body-container .main .form .field-container {
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: auto auto;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 body .body-container .main .form .tooltip.field-container .input-label {
@@ -136,13 +144,26 @@ body .body-container .main .form .submit-container {
   justify-content: center; */
 }
 
-.submit {
+body .body-container .main .form .submit-container .submit {
   height: 3rem;
   width: 5rem;
   border-radius: 8px;
 }
 
-.footer {
+/* When submit button is disabled */
+body .body-container .main .form .submit-container .submit:disabled {
+  background-color: gray;
+  color: black;
+}
+
+/* When submit button is enabled */
+body .body-container .main .form .submit-container .submit:not(:disabled) {
+  background-color: green;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+body .body-container .footer {
   display: grid;
   align-content: center;
   justify-content: center;
@@ -151,34 +172,10 @@ body .body-container .main .form .submit-container {
   background-color: mediumpurple;
 }
 
-.field-container {
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-filter-2 {
-  outline: none;
-  box-shadow: 0px 0px 5px whitesmoke; /*here change the color*/
-  border: 1px solid whitesmoke; /*here change the color*/
-  border-radius: 0;
-}
-
-.show-error {
-  outline: none;
-  box-shadow: 0px 0px 5px red; /*here change the color*/
-  border: 1px solid red; /*here change the color*/
-}
-
-/* When submit button is disabled */
-.submit:disabled {
-  background-color: gray;
-  color: black;
-}
-
-/* When submit button is enabled */
-.submit:not(:disabled) {
-  background-color: green;
-  color: whitesmoke;
-  cursor: pointer;
-}
+/* Something to look at */
+/* filter-2 {
+  outline: none; */
+/*box-shadow: 0px 0px 5px whitesmoke;*/ /*here change the color*/
+/*border: 1px solid whitesmoke;*/ /*here change the color*/
+/* border-radius: 0;
+} */
