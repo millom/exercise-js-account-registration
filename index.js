@@ -13,27 +13,70 @@ let isEmailDirty = false;
 let isPasswordDirty = false;
 let isConfirmDirty = false;
 
-nameTag.onkeyup = (e) => {
+nameTag.addEventListener("focusin", () => {
+  console.log("Focus");
+  event.target.style.background = "lightgray";
+  removeErrorBorder(nameTag);
+  disableTooltip(nameTag);
+});
+
+// nameTag.addEventListener("focusout", () => {
+//   console.log("Focus out");
+//   event.target.style.background = "";
+// });
+
+// nameTag.focusin = (event) => {
+//   console.log("Focus in");
+// };
+
+// nameTag.onclick = (event) => {
+nameTag.addEventListener("focusout", () => {
+  console.log("Focus out");
+  event.target.style.background = "";
+  // console.log("Focus out");
   // e.preventDefault();
   // console.log(e);
   // nameTag.parentElement.classList.add("show-error");
   // nameTag.style.borderColor = "red";
   // nameTag.style.border = 1rem;
-  isNameDirty = true;
 
-  enableOrDisableButton();
+  // const isInputOk = isNameTagValid(nameTag);
+  if (!isNameTagValid(nameTag)) {
+    //   removeErrorBorder(nameTag);
+    //   disableTooltip(nameTag);
+    // } else {
+    addErrorBorder(nameTag);
+    enableTooltip(nameTag);
+  }
+  // handleShowErrors(nameTag);
 
-  const isInputOk = isNameTagValid(nameTag);
-
+  // isInputOk
+  //   ? nameTag.classList.remove("show-error")
+  //   : nameTag.classList.add("show-error");
   // if (!nameTag.parentElement.classList.contains("show-error")) {
   //   nameTag.parentElement.classList.add("show-error");
   //   nameTag.parentElement.bordercolor = "red";
   // }
 
-  isInputOk ? removeErrorBorder(nameTag) : addErrorBorder(nameTag);
-  isInputOk ? disableTooltip(nameTag) : enableTooltip(nameTag);
-  console.log(nameTag.classList);
-};
+  // isInputOk ? removeErrorBorder(nameTag) : addErrorBorder(nameTag);
+  // isInputOk ? disableTooltip(nameTag) : enableTooltip(nameTag);
+  // console.log(nameTag.classList);
+
+  isNameDirty = true;
+  enableOrDisableButton();
+});
+
+// const handleShowErrors = (tag) => {
+//   isInputOk ? hideErrors(tag) : showErrors(tag);
+// };
+
+// let showErrors = (nameTag) => {};
+
+// let hideErrors = (nameTag) => {};
+
+// isInputOk
+//   ? nameTag.classList.remove("show-error")
+//   : nameTag.classList.add("show-error");
 
 // document.querySelector(".tooltip").onmouseover = () => {
 // nameTag.onmouseover = () => {

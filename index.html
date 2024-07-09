@@ -19,13 +19,15 @@
             <input
               id="name"
               type="text"
+              class=""
               placeholder="Firstname Sirname"
-              pattern="[a-öA-Ö\- ]{5,25}[ ]{1}[a-öA-Ö\- ]{5,25}"
+              pattern="[a-öA-Ö\- ]{2,25}[ ]{1}[a-öA-Ö\- ]{2,25}"
               required
             />
-            <span id="name-error" class="tooltip-text tooltip-show"
-              >SHOW THIS</span
-            >
+            <article id="name-error" class="tooltip-text">
+              <p>Namn måste vara 2 till 25 bokstäver</p>
+              <p>Kan endast innemålla svenska bokstäver</p>
+            </article>
           </div>
           <div>
             <label for="username">Username: </label>
