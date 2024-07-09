@@ -1,17 +1,28 @@
 * {
-  outline: none;
-  border-radius: 0;
-  border: none;
+  /* outline: none; */
+  /* border-radius: 12ps; */
+  /* border: none; */
   padding: 0;
   margin: 0;
   box-shadow: none;
 }
 
 body {
-  display: grid;
+  align-content: center;
+  justify-content: center;
+  background-color: rgb(202, 175, 206);
+
+  height: 100%;
+  width: 100%;
+}
+
+.body-container {
+  /* margin: 25rem; */
+  height: 100vh;
+  /* display: grid;
   grid-template-rows: 1fp 1fp 1fp;
   grid-template-columns: 1fp;
-  flex-direction: column;
+  flex-direction: column; */
   /* align-content: space-between;
   justify-content: space-between; */
   /* gap: 2rem; */
@@ -22,8 +33,13 @@ body {
   grid-row-end: 4;
   grid-column-start: 2;
   grid-column-end: 2; */
-
-  margin: 15%;
+  max-width: 52rem;
+  /* background-color: chocolate; */
+  margin: 20%;
+  /* border-collapse: separate;
+  perspective: 1px; */
+  overflow: hidden;
+  border-radius: 12px;
 }
 
 .main {
@@ -31,9 +47,9 @@ body {
   align-content: center;
   justify-content: center;
 
-  padding-block: 3rem;
+  padding-block: 2rem;
   background-color: blueviolet;
-  border: none;
+  /* border: none; */
   /* display: grid;
   grid-template-columns: 1fp 1fp;
   grid-template-rows: 1fp 1fp 1fp 1fp 1fp 1fp;
@@ -91,6 +107,8 @@ body {
   display: grid;
   justify-content: center;
   align-content: center;
+
+  margin-top: 1rem;
 }
 
 .submit {
@@ -104,7 +122,7 @@ body {
   align-content: center;
   justify-content: center;
 
-  padding: 4%;
+  padding: 8%;
   /* border-top: 1rem;
   border-color: gold; */
   /* background-color: blueviolet; */
@@ -132,7 +150,7 @@ body {
   /* Position the tooltip */
   position: absolute;
   right: -13em;
-  z-index: 1;
+  z-index: 2;
 }
 
 .field-container {
@@ -161,6 +179,13 @@ body {
   height: 2rem;
   width: 12rem;
   text-align: center;
+
+  border-radius: 8px;
+  color: black;
+  /* background-color: mediumpurple; */
+  /* background-color: blueviolet; */
+  /* background-color: lightcoral; */
+  /* boder: none; */
 }
 
 .submit-container {
