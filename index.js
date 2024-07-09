@@ -150,6 +150,8 @@ const isPasswordValid = () => {
 
 nameTag.addEventListener("focusin", focusinFunc);
 nameTag.addEventListener("focusout", focusoutFunc);
+nameTag.addEventListener("mouseEnter", () => {});
+nameTag.addEventListener("mouseleave", () => {});
 
 usernameTag.addEventListener("focusin", focusinFunc);
 usernameTag.addEventListener("focusout", focusoutFunc);
