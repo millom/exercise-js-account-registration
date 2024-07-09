@@ -41,7 +41,8 @@ nameTag.addEventListener("focusout", () => {
   // nameTag.style.border = 1rem;
 
   // const isInputOk = isNameTagValid(nameTag);
-  if (!isNameTagValid(nameTag)) {
+  // console.log();
+  if (!nameTag.checkValidity()) {
     //   removeErrorBorder(nameTag);
     //   disableTooltip(nameTag);
     // } else {
