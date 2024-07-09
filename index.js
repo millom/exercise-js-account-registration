@@ -117,6 +117,8 @@ formTag.addEventListener("submit", () => {
   };
 
   console.log("Submit:", registrationData);
+
+  formTag.reset(); /* Needed in Chrome, laptop */
 });
 
 nameTag.addEventListener("focusin", focusinFunc);
