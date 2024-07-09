@@ -1,5 +1,5 @@
 const formTag = document.querySelector(".form");
-const buttonTag = document.querySelector(".submit");
+const buttonTag = formTag.querySelector(".submit");
 
 const nameTag = formTag.querySelector("#name");
 const usernameTag = formTag.querySelector("#username");
@@ -107,7 +107,8 @@ const isPasswordValid = () => {
 };
 
 formTag.addEventListener("submit", () => {
-  console.log("Submit");
+  event.preventDefault();
+
   const registrationData = {
     name: nameTag.value,
     username: usernameTag.value,
@@ -115,7 +116,7 @@ formTag.addEventListener("submit", () => {
     password: passwordTag.value,
   };
 
-  console.log(registrationData);
+  console.log("Submit:", registrationData);
 });
 
 nameTag.addEventListener("focusin", focusinFunc);

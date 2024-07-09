@@ -51,7 +51,7 @@ body {
 
 .form {
   display: grid;
-  grid-template-rows: 1fp 1fp 1fp 1fp 1fp;
+  grid-template-rows: 1fp 1fp 1fp 1fp 1fp 1fp;
   grid-template-columns: 1fp;
   flex-direction: column;
   gap: 1rem;
