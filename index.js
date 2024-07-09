@@ -7,12 +7,6 @@ const emailTag = formTag.querySelector("#email");
 const passwordTag = formTag.querySelector("#password");
 const confirmPasswordTag = formTag.querySelector("#confirm-password");
 
-let isNameDirty = false;
-let isUsernameDirty = false;
-let isEmailDirty = false;
-let isPasswordDirty = false;
-let isConfirmDirty = false;
-
 const removeErrorBorder = (tag) => {
   if (tag.classList.contains("show-error")) {
     tag.classList.remove("show-error");
@@ -50,16 +44,6 @@ const enableTooltip = (tag) => {
   }
 };
 
-const isFormTouched = () => {
-  return (
-    isNameDirty ||
-    isUsernameDirty ||
-    isEmailDirty ||
-    isPasswordDirty ||
-    isConfirmDirty
-  );
-};
-
 const areAllFormItemsValid = () => {
   return formTag.checkValidity();
 };
@@ -73,7 +57,7 @@ const isFormValid = () => {
 };
 
 const enableOrDisableButton = () => {
-  !isFormTouched() || isFormValid()
+  isFormValid()
     ? buttonTag.removeAttribute("disabled")
     : buttonTag.setAttribute("disabled", "disabled");
 };
@@ -97,38 +81,14 @@ const handleGUI = (tag, validate) => {
   enableOrDisableButton();
 };
 
-const setIsDirty = (name) => {
-  switch (name) {
-    case "name":
-      isNameDirty = true;
-      break;
-    case "user-name":
-      isUsernameDirty = true;
-      break;
-    case "email":
-      isEmailDirty = true;
-      break;
-    case "password":
-      isPasswordDirty = true;
-      break;
-    case "confirm-password":
-      isConfirmDirty = true;
-      break;
-  }
-};
-
 const focusoutFunc = () => {
   event.target.style.background = "";
-
-  setIsDirty(event.target.name);
 
   handleGUI(event.target, validiteFunc);
 };
 
 const focusoutPasswordFunc = () => {
   event.target.style.background = "";
-
-  setIsDirty(event.target.name);
 
   handleGUI(passwordTag, validiteFunc);
 
@@ -137,8 +97,6 @@ const focusoutPasswordFunc = () => {
 
 const focusoutConfirmFunc = () => {
   event.target.style.background = "";
-
-  setIsDirty(event.target.name);
 
   handleGUI(event.target, validiteConfirmFunc);
 };
@@ -150,8 +108,6 @@ const isPasswordValid = () => {
 
 nameTag.addEventListener("focusin", focusinFunc);
 nameTag.addEventListener("focusout", focusoutFunc);
-// nameTag.addEventListener("mouseEnter", () => {});
-// nameTag.addEventListener("mouseleave", () => {});
 
 usernameTag.addEventListener("focusin", focusinFunc);
 usernameTag.addEventListener("focusout", focusoutFunc);
