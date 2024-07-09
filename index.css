@@ -125,7 +125,6 @@ body
   .tooltip-text
   .tooltip-line {
   outline: none;
-  /*box-shadow: 0px 0px 5px whitesmoke;*/ /*here change the color*/
   border-block: 1px solid whitesmoke; /*here change the color*/
   border-radius: 0;
   margin-block: 0.3rem;
@@ -138,10 +137,6 @@ body .body-container .main .form .submit-container {
   align-content: center;
 
   margin-top: 1rem;
-
-  /* display: flex;
-  align-content: center;
-  justify-content: center; */
 }
 
 body .body-container .main .form .submit-container .submit {
