@@ -20,7 +20,7 @@ const removeErrorBorder = (tag) => {
 };
 
 const disableTooltip = (tag) => {
-  const errorTag = tag.parentElement.querySelector("#name-error");
+  const errorTag = tag.parentElement.querySelector(".tooltip-text");
   if (errorTag.classList.contains("tooltip-show")) {
     errorTag.classList.remove("tooltip-show");
   }
@@ -44,7 +44,7 @@ const addErrorBorder = (tag) => {
 };
 
 const enableTooltip = (tag) => {
-  const errorTag = tag.parentElement.querySelector("#name-error");
+  const errorTag = tag.parentElement.querySelector(".tooltip-text");
   if (!errorTag.classList.contains("tooltip-show")) {
     errorTag.classList.add("tooltip-show");
   }
@@ -78,31 +78,69 @@ const enableOrDisableButton = () => {
     : buttonTag.setAttribute("disabled", "disabled");
 };
 
-const validiteTag = (tag) => {
+const validiteFunc = (tag) => {
   return tag.checkValidity();
 };
 
-const validiteConfirmTag = (tag) => {
+const validiteConfirmFunc = (tag) => {
   if (!isPasswordValid()) return true;
 
   // If password is valid this must also be valid
-  return tag.value == confirmPasswordTag.value;
+  return passwordTag.value == confirmPasswordTag.value;
 };
 
 const handleGUI = (tag, validate) => {
-  if (!validate(tag)) {
-    addErrorBorder(tag);
-    enableTooltip(tag);
-  }
+  const isTagValid = validate(tag);
+  isTagValid ? removeErrorBorder(tag) : addErrorBorder(tag);
+  isTagValid ? disableTooltip(tag) : enableTooltip(tag);
+
   enableOrDisableButton();
+};
+
+const setIsDirty = (name) => {
+  switch (name) {
+    case "name":
+      isNameDirty = true;
+      break;
+    case "user-name":
+      isUsernameDirty = true;
+      break;
+    case "email":
+      isEmailDirty = true;
+      break;
+    case "password":
+      isPasswordDirty = true;
+      break;
+    case "confirm-password":
+      isConfirmDirty = true;
+      break;
+  }
 };
 
 const focusoutFunc = () => {
   event.target.style.background = "";
 
-  isNameDirty = true;
+  setIsDirty(event.target.name);
 
-  handleGUI(event.target, validiteTag);
+  handleGUI(event.target, validiteFunc);
+};
+
+const focusoutPasswordFunc = () => {
+  event.target.style.background = "";
+
+  setIsDirty(event.target.name);
+
+  handleGUI(passwordTag, validiteFunc);
+
+  handleGUI(confirmPasswordTag, validiteConfirmFunc);
+};
+
+const focusoutConfirmFunc = () => {
+  event.target.style.background = "";
+
+  setIsDirty(event.target.name);
+
+  handleGUI(event.target, validiteConfirmFunc);
 };
 
 const isPasswordValid = () => {
@@ -120,19 +158,10 @@ emailTag.addEventListener("focusin", focusinFunc);
 emailTag.addEventListener("focusout", focusoutFunc);
 
 passwordTag.addEventListener("focusin", focusinFunc);
-passwordTag.addEventListener("focusout", focusoutFunc);
+passwordTag.addEventListener("focusout", focusoutPasswordFunc);
 
 confirmPasswordTag.addEventListener("focusin", focusinFunc);
-confirmPasswordTag.addEventListener("focusout", () => {
-  event.target.style.background = "";
-
-  // Check if password is correct, if not ignore this
-  // if (!isPasswordValid()) return;
-
-  handleGUI(event.target, validiteConfirmTag);
-
-  isNameDirty = true;
-});
+confirmPasswordTag.addEventListener("focusout", focusoutConfirmFunc);
 
 // Enable submit button at startup
 enableOrDisableButton();
