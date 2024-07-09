@@ -106,6 +106,18 @@ const isPasswordValid = () => {
   return passwordTag.checkValidity();
 };
 
+formTag.addEventListener("submit", () => {
+  console.log("Submit");
+  const registrationData = {
+    name: nameTag.value,
+    username: usernameTag.value,
+    email: emailTag.value,
+    password: passwordTag.value,
+  };
+
+  console.log(registrationData);
+});
+
 nameTag.addEventListener("focusin", focusinFunc);
 nameTag.addEventListener("focusout", focusoutFunc);
 
